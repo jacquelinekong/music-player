@@ -1,34 +1,19 @@
-import React, { useEffect } from "react";
 import {
   useReactTable,
   getCoreRowModel,
-  createColumnHelper,
   flexRender,
+  ColumnDef,
 } from "@tanstack/react-table";
-import { APISong, Song, apiSongToSong } from "./Models";
 
-const columnHelper = createColumnHelper<Song>();
-const columns = [columnHelper.accessor("title", { id: "title" })];
+interface TableProps<TData> {
+  rows: TData[];
+  columns: ColumnDef<TData, any>[]; // TODO: Figure out the typing
+}
 
-const Table: React.FunctionComponent = () => {
-  const [data, setData] = React.useState<Song[]>([]);
-
-  useEffect(() => {
-    fetch(
-      "https://storage.googleapis.com/atticus-frontend-assessment/api/songs.json",
-      { method: "GET" }
-    )
-      .then((res) => res.json())
-      .then((apiData: { songs: APISong[] }) => {
-        const apiSongs = apiData.songs;
-        const songs = apiSongs.map((as) => apiSongToSong(as));
-        setData(songs);
-      });
-  }, []);
-
+function Table<TData>(props: TableProps<TData>) {
   const table = useReactTable({
-    data,
-    columns,
+    data: props.rows,
+    columns: props.columns,
     getCoreRowModel: getCoreRowModel(),
   });
   return (
@@ -62,6 +47,6 @@ const Table: React.FunctionComponent = () => {
       </tbody>
     </table>
   );
-};
+}
 
 export default Table;
