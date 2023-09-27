@@ -11,3 +11,7 @@ th {
   border-bottom: 1px solid black;
   background-color: lightgray;
 }
+
+td {
+  padding: 3px 15px;
+}
