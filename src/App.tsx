@@ -1,10 +1,12 @@
 import "./App.css";
-import SongsTable from "./SongsTable";
+import LibraryView from "./LibraryView";
+import PlaylistView from "./PlaylistView";
 
 function App() {
   return (
     <div className="App">
-      <SongsTable />
+      <LibraryView />
+      <PlaylistView />
     </div>
   );
 }

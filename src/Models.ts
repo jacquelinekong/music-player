@@ -18,3 +18,8 @@ export const apiSongToSong = (apiSong: APISong): Song => ({
   artist: apiSong.artist,
   songLengthSeconds: parseInt(apiSong.song_length),
 });
+
+export interface Playlist {
+  name: string;
+  songs: Song[];
+}
