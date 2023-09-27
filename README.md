@@ -4,7 +4,12 @@ For this exercise, I prioritized setting up a reusable Table component that coul
 
 This app lacks interactivity but provides the basis for manipulating playlists and songs. The next slices would be to implement CRUD operations for playlists, then sorting and filtering for songs, then album views. I would also want to paginate the table so that the song list could scale. In terms of testing, I generally want to include a layer of shallow-render tests that act as unit tests, integration tests with mocked APIs, and end-to-end tests that talk to an actual sever.
 
-The main point of assessment that I didn't have time to get to was the use of the listed hooks. My examples of useMemo prevent unnecessary playlist re-rendering (in the world where the playlists are editable). Given more time, I would use useCallback for caching table data for playlists/songs
+The main point of assessment that I didn't have time to get to was the use of the listed hooks. My examples of useMemo prevent unnecessary playlist re-rendering (in the world where the playlists are editable). Given more time, I would use useCallback for caching table data for playlists/songs.
+
+# TO RUN:
+
+`npm install`
+`npm start`
 
 # Getting Started with Create React App
 
